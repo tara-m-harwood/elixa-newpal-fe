@@ -7,7 +7,7 @@
   font-family: "Consolas", monaco, courier, monospace;
 }
 :root {
-  --column-bg: #ae0001;
+  --column-bg: #4D394B;
   --menu-bg-hover: #680001;
   --active-item: #d3a625;
   --active-item-text: #680001;
@@ -23,7 +23,7 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
-  font-size: 17px;
+  font-size: 18px;
   font-family: "Lato", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #555459;
@@ -154,8 +154,8 @@ button:focus, button:hover, button:active {
 .sidebar {
   position: relative;
   z-index: 1;
-  width: 250px;
-  background: var(--column-bg, #ae0001);
+  width: 350px;
+  background: var(--column-bg, #4D394B);
   color: var(--text-color, #fff);
 }
 .threads {
