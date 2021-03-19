@@ -8,8 +8,8 @@
 }
 :root {
   --column-bg: #4D394B;
-  --menu-bg-hover: #680001;
-  --active-item: #d3a625;
+  --menu-bg-hover: #3E313C;
+  --active-item: #00ffba;
   --active-item-text: #680001;
   --hover-item: #be0002;
   --text-color: #fff;
@@ -196,6 +196,10 @@ button:focus, button:hover, button:active {
   line-height: 2.1;
   text-transform: uppercase;
   opacity: 0.6;
+}
+
+.channels__list, .dm__list {
+  list-style-type: none;
 }
 .channels__button, .dm__button {
   padding: 4px 0 4px 18px;

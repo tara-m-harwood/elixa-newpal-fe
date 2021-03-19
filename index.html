@@ -1,140 +1,182 @@
-<HTML>
-<HEAD>
-	<TITLE>ELIXA helps debug</TITLE>
-	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixabot.js"></SCRIPT>
-	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixadata.js"></SCRIPT>
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type = "text/css" href = "styles.css">
+      <title>Elixa on Slack</title>
+      <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixabot.js"></SCRIPT>
+      <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixadata.js"></SCRIPT>
+      
+      <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+  
+        var elixa = new ElixaBot();
+        var elixaLines = new Array();
+        
+        var displayCols = 60;
+        var displayRows = 20;
+        
+        function elixaReset() {
+          elixa.reset();
+          elixaLines.length = 0;
+          elixaStep();
+        }
+        
+        function elixaStep() {
+          var f = document.forms.e_form;
+          var userinput = f.e_input.value;
+          if (elixa.quit) {
+            f.e_input.value = '';
+            if (confirm("This session is over.\nStart over?")) elixaReset();
+            f.e_input.focus();
+            return;
+          }
+          else if (userinput != '') {
+            var usr = 'YOU:   ' + userinput;
+            var rpl ='ELIXA: ' + elixa.transform(userinput);
+            elixaLines.push(usr);
+            elixaLines.push(rpl);
+            // display nicely
+            // (fit to textarea with last line free - reserved for extra line caused by word wrap)
+            var temp  = new Array();
+            var l = 0;
+            for (var i=elixaLines.length-1; i>=0; i--) {
+              l += 1 + Math.floor(elixaLines[i].length/displayCols);
+              if (l >= displayRows) break
+              else temp.push(elixaLines[i]);
+            }
+            elixaLines = temp.reverse();
+            f.e_display.value = elixaLines.join('\n');
+          }
+          else if (elixaLines.length == 0) {
+            // no input and no saved lines -> output initial
+            console.log("inital lines")
+            var initial = 'ELIXA: ' + elixa.getInitial();
+            elixaLines.push(initial);
+            f.e_display.value = initial + '\n';
+          }
+          f.e_input.value = '';
+          f.e_input.focus();
+        }
 
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" defer>
+        </SCRIPT>
+  </head>
+  <body onload="window.setTimeout('elixaReset()',100)">
+      
+  <div class="slack">
+      
+      <div class="sidebar">
+        <button class="team-menu">
+          <div class="team-menu__info">
+            <h1 class="team-menu__name">Denver Love Bubble</h1>
+            <div class="team-menu__status">
+              <span class="team-menu__username">You</span>
+            </div>
+          </div>
+          <span class="team-menu__alarm ion-ios-bell-outline"></span>
+        </button>
+        <div class="threads">
+          <span class="ion-chatbubble-working threads__icon"></span> All Threads
+        </div>
+        <div class="channels">
+          <h2 class="channels__heading">
+            <span>Channels <span class="channels__number">(3)</span>
+            </span>
+            <button class="ion-ios-plus-outline channels__add"></button>
+          </h2>
+          <ul class="channels__list">
+            <li class="channels__item">
+              <button class="channels__button"><span>denver-se-announce</span></button>
+            </li>
+            <li class="channels__item">
+              <button class="channels__button"><span>denver-tech-questions</span></button>
+            </li>
+            <li class="channels__item">
+              <button class="channels__button"><span>denver-random</span></button>
+            </li>
+            <li class="channels__item">
+              <button class="channels__button"><span>denver-chatbot-info</span></button>
+            </li>
+          </ul>
+        </div>
+        <div class="dm">
+          <h2 class="dm__heading">
+            <span>Direct messages <span class="dm__number">(29)</span>
+            </span>
+            <button class="ion-ios-plus-outline dm__add"></button>
+          </h2>
+          <ul class="dm__list">
+            <li class="dm__item">
+              <button class="dm__button dm__button--slackbot dm__button--active"><span>Elixa Newpal</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online"><span>Tara Harwood</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button"><span>Ahmed Gaber</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online"><span>Damon Chivers</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online"><span>Kyle Coberly</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button"><span>Brian Firooz</span></button>
+            </li>
+            <!-- <li class="dm__item">
+              <button class="dm__button dm__button--online"><span>Luna Lovegood</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button"><span>Cho Chang</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button"><span>Seamus Finnigan</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online"><span>Lavender Brown</span></button>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="main">
+        <header class="main__header">
+          <p>This is the very beginning of your direct message history with @ELIXA. Only the two of you are in this conversation, and no one else can join it.</p>
+          <button class="ion-android-close"></button>
+        </header>
+        <div class="main__content">
+          <div class="main__container">
+            <h4 class="main__h4">Today </h4>
+            <section class="main__section">
+              <!-- add ELIXA code below -->
+              <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
+                <FORM NAME="e_form" onsubmit="elixaStep();return false">
+                <TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="60" ROWS="20"></TEXTAREA></TD></TR>
+                <TR VALIGN="middle">
+                  <TD><INPUT TYPE="text" NAME="e_input" SIZE="50"></TD>
+                  <TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elixaReset()',100)"></TD>
+                </TR>
+                </FORM>
+                </TABLE>
+                </CENTER>
+                
+                <TABLE BORDER="0" CELLSPACING="12" CELLPADDDING="0">
+                <TR><TD COLSPAN="2">
+                
+                </TD></TR>
+                <TR><TD COLSPAN="2">&nbsp;</TD></TR>
+                <TR><TD COLSPAN="2">                 
+                </TD></TR>
+                <TD>
+                </TD>
+                </TR>
+                </TABLE>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
 
-var elixa = new ElixaBot();
-var elixaLines = new Array();
-
-var displayCols = 60;
-var displayRows = 20;
-
-function elixaReset() {
-	elixa.reset();
-	elixaLines.length = 0;
-	elixaStep();
-}
-
-function elixaStep() {
-	var f = document.forms.e_form;
-	var userinput = f.e_input.value;
-	if (elixa.quit) {
-		f.e_input.value = '';
-		if (confirm("This session is over.\nStart over?")) elixaReset();
-		f.e_input.focus();
-		return;
-	}
-	else if (userinput != '') {
-		var usr = 'YOU:   ' + userinput;
-		var rpl ='ELIXA: ' + elixa.transform(userinput);
-		elixaLines.push(usr);
-		elixaLines.push(rpl);
-		// display nicely
-		// (fit to textarea with last line free - reserved for extra line caused by word wrap)
-		var temp  = new Array();
-		var l = 0;
-		for (var i=elixaLines.length-1; i>=0; i--) {
-			l += 1 + Math.floor(elixaLines[i].length/displayCols);
-			if (l >= displayRows) break
-			else temp.push(elixaLines[i]);
-		}
-		elixaLines = temp.reverse();
-		f.e_display.value = elixaLines.join('\n');
-	}
-	else if (elixaLines.length == 0) {
-		// no input and no saved lines -> output initial
-		var initial = 'ELIXA: ' + elixa.getInitial();
-		elixaLines.push(initial);
-		f.e_display.value = initial + '\n';
-	}
-	f.e_input.value = '';
-	f.e_input.focus();
-}
-
-</SCRIPT>
-</HEAD>
-
-<BODY TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0" BOTTOMMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" STYLE="border:0" onload="window.setTimeout('elixaReset()',100)"><A NAME="top"></A>
-
-<CENTER>
-<P>&nbsp;</P>
-<H3>ELIXA<H3>
-<H4>a friendly beginner sofware engineering student who wants to help you debug</H3>
-<TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
-<FORM NAME="e_form" onsubmit="elixaStep();return false">
-<TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="60" ROWS="20"></TEXTAREA></TD></TR>
-<TR VALIGN="middle">
-	<TD><INPUT TYPE="text" NAME="e_input" SIZE="50"></TD>
-	<TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elixaReset()',100)"></TD>
-</TR>
-</FORM>
-</TABLE>
-</CENTER>
-
-<TABLE BORDER="0" CELLSPACING="12" CELLPADDDING="0">
-<TR><TD COLSPAN="2">
-ELIXA is based on the original ELIZA, a natural language conversation program described by Joseph Weizenbaum in January 1966 <A HREF="#ELIZA">[1]</A>.<BR>
-It features the dialog between a human user and a computer program representing a mock Rogerian psychotherapist.<BR>
-The original program was implemented on the IBM 7094 of the Project MAC time-sharing system at MIT and was written in MAD-SLIP.<BR><BR>
-This is how Joseph Weizenbaum discussed his choice for a conversation model as it would be found in psychotherapist's session:
-<BLOCKQUOTE>
-At this writing, the only serious ELIZA scripts which exist are some which cause
-ELIZA to respond roughly as would certain psychotherapists (Rogerians). ELIZA
-performs best when its human correspondent is initially instructed to
-&quot;talk&quot; to it, via the typewriter of course, just as one would to a
-psychiatrist. This mode of conversation was chosen because the psychiatric
-interview is one of the few examples of categorized dyadic natural language
-communication in which one of the participating pair is free to assume the pose
-of knowing almost nothing of the real world. If, for example, one were to tell a
-psychiatrist &quot;I went for a long boat ride&quot; and he responded &quot;Tell
-me about boats&quot;, one would not assume that he knew nothing about boats, but
-that he had some purpose in so directing the subsequent conversation. It is
-important to note that this assumption is one made by the speaker. Whether it is
-realistic or not is an altogether separate question. In any case, it has a
-crucial psychological utility in that it serves the speaker to maintain his
-sense of being heard and understood. The speaker furher defends his impression
-(which even in real life may be illusory) by attributing to his conversational
-partner all sorts of background knowledge, insights and reasoning ability. But
-again, these are the <em>speaker's</em> contribution to the conversation.
-</BLOCKQUOTE>
-For a conversation example given by Joseph Weizenbaum in his article see the <A HREF="eliza_test.html">Eliza Test</A> page.
-</TD></TR>
-<TR><TD COLSPAN="2">&nbsp;</TD></TR>
-<TR><TD COLSPAN="2">
-	<H3>About elizabot.js</H3>
-	<P>&quot;elizabot.js&quot; is an object oriented JavaScript library for [multiple] instances of the Eliza program.</P>
-
-	<P>&nbsp;<BR>
-	&quot;elizabot.js&quot; by &copy; Norbert Landsteiner 2005;<BR>
-	mass:werk &#150; media environments &lt;<A HREF="http://www.masswerk.at/" TARGET="_blank">http://www.masswerk.at</A>&gt;.</P>
-	<P>Distribution:<BR>
-	&quot;elizabot.js&quot; is free software and provided &quot;as is&quot;.
-	It is distributed in the hope that it will be useful,
-    but without any warranty; without even the implied warranty of
-    merchantability or fitness for a particular purpose.</P>
-   
-</TD></TR>
-<TR><TD COLSPAN="2">&nbsp;</TD></TR>
-<TR><TD COLSPAN="2"><B>Download</B>: <A HREF="elizabot.zip">elizabot.zip</A> &nbsp;<SMALL>(ZIP file, 15 KB incl. documentation)</SMALL></TD></TR>
-<TR><TD COLSPAN="2">&nbsp;</TD></TR>
-<TR><TD COLSPAN="2">References:</TD></TR>
-<TR VALIGN="top">
-<TD><A NAME="ELIZA"></A>[1]</TD>
-<TD>
-    Weizenbaum, Joseph &quot;ELIZA &#150; A Computer Program For the Study of Natural Language
-    Communication Between Man and Machine&quot;<BR>
-    in: Communications of the ACM; Volume 9 , Issue 1 (January 1966): p 36-45.
-</TD>
-</TR>
-<TR><TD COLSPAN="2">&nbsp;</TD></TR>
-<TR><TD COLSPAN="2"><SMALL>&gt; <A HREF="#top">top of page</A></SMALL></TD></TR>
-<TR><TD COLSPAN="2">&nbsp;</TD></TR>
-<TR><TD COLSPAN="2" STYLE="font-family: arial,helvetica,sans-serif; font-size: 12px;">N. Landsteiner 2005; &lt;<A HREF="http://www.masswerk.at/" TARGET="_blank">http://www.masswerk.at</A>&gt;</SMALL></TD></TR>
-<TR><TD COLSPAN="2">&nbsp;</TD></TR>
-</TABLE>
-
-</BODY>
-</HTML>
+  </body>
+</html>
