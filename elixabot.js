@@ -44,7 +44,7 @@
   vers 1.1: lambda functions in RegExps are currently a problem with too many browsers.
             changed code to work around.
 */
-
+console.log("Elixabot is here")
 
 function ElixaBot(noRandomFlag) {
 	this.noRandom= (noRandomFlag)? true:false;
