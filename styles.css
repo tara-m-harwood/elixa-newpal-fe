@@ -7,9 +7,9 @@
   font-family: "Consolas", monaco, courier, monospace;
 }
 :root {
-  --column-bg: #ae0001;
-  --menu-bg-hover: #680001;
-  --active-item: #d3a625;
+  --column-bg: #4D394B;
+  --menu-bg-hover: #3E313C;
+  --active-item: #00ffba;
   --active-item-text: #680001;
   --hover-item: #be0002;
   --text-color: #fff;
@@ -23,7 +23,7 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
-  font-size: 17px;
+  font-size: 18px;
   font-family: "Lato", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #555459;
@@ -154,8 +154,8 @@ button:focus, button:hover, button:active {
 .sidebar {
   position: relative;
   z-index: 1;
-  width: 250px;
-  background: var(--column-bg, #ae0001);
+  width: 350px;
+  background: var(--column-bg, #4D394B);
   color: var(--text-color, #fff);
 }
 .threads {
@@ -196,6 +196,10 @@ button:focus, button:hover, button:active {
   line-height: 2.1;
   text-transform: uppercase;
   opacity: 0.6;
+}
+
+.channels__list, .dm__list {
+  list-style-type: none;
 }
 .channels__button, .dm__button {
   padding: 4px 0 4px 18px;
