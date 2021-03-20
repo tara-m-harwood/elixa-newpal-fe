@@ -238,6 +238,7 @@ ElixaBot.prototype.transform = function(text) {
 			for (var k=0; k<elixaKeywords.length; k++) {
 				if (part.search(new RegExp('\\b'+elixaKeywords[k][0]+'\\b', 'i'))>=0) {
 					rpl = this._execRule(k);
+					console.log(elixaKeywords[k][0])
 				}
 				if (rpl!='') return rpl;
 			}
