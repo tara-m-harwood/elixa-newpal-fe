@@ -3,19 +3,18 @@
 // [cf: Communications of the ACM, Vol. 9, #1 (January 1966): p 36-45.]
 
 var elixaInitials = [
-"How do you do.  Please tell me your problem.",
-// additions (not original)
-"Please tell me what's been bothering you.",
-"Is something troubling you ?"
+"Hi! Are you having some problems with your code?  Tell me about it!",
+"Do you need someone to talk to about your code? I'm not sure if I can help but I can give it a try!",
+"Hi Friend!  What is going on?",
+"Do you need some troubleshooting help?  Talk me through it!"
 ];
 
 var elixaFinals = [
 "Goodbye.  It was nice talking to you.",
 // additions (not original)
-"Goodbye.  This was really a nice talk.",
-"Goodbye.  I'm looking forward to our next session.",
-"This was a good session, wasn't it -- but time is over now.   Goodbye.",
-"Maybe we could discuss this moreover in our next session ?   Goodbye."
+"Goodbye.  Good luck with your code!",
+"Bye!  I'm looking forward to our next chat!",
+"Great chat!  Let's do it again sometime!"
 ];
 
 var elixaQuits = [
@@ -67,7 +66,8 @@ var elixaSynons = {
 "everyone": ["everybody", "nobody", "noone"],
 "family": ["mother", "mom", "father", "dad", "sister", "brother", "wife", "children", "child"],
 "happy": ["elated", "glad", "better"],
-"sad": ["unhappy", "depressed", "sick"]
+"sad": ["unhappy", "depressed", "sick"],
+"apologise": ["apologize", "apology"]
 };
 
 var elixaKeywords = [
@@ -90,21 +90,21 @@ var elixaKeywords = [
 
 ["xnone", 0, [
  ["*", [
-     "I'm not sure I understand you fully.",
-     "Please go on.",
-     "What does that suggest to you ?",
-     "Do you feel strongly about discussing such things ?",
-     "That is interesting.  Please continue.",
-     "Tell me more about that.",
-     "Does talking about this bother you ?"
+     "Hmmmm ... I don't totally understand that.  Can you explain again for me?",
+     "What does that suggest to you?",
+     "I don't know much about that but I love learning new things!  Would you chat it through with me?",
+     "I'm not sure, but I'd love to hear more about it!",
+     "Oooh, sounds tricky! What have you tried so far?",
+     "I'm just starting out, so I don't know as much as you do ... yet! Can you tell me more?",
+     "Could you use something like console.log or byebug or binding.pry to help you figure it out?",
+     "Are you getting any error messages that might have a clue?  My friend Blake taught me 'always read the error!'"
   ]]
 ]],
 ["sorry", 0, [
  ["*", [
-     "Please don't apologise.",
-     "Apologies are not necessary.",
-     "I've told you that apologies are not required.",
-     "It did not bother me.  Please continue."
+     "No worries!",
+     "Apologies are not necessary - I'm here to help!",
+     "No need to be sorry, I don't mind!",
   ]]
 ]],
 ["apologise", 0, [
@@ -114,17 +114,17 @@ var elixaKeywords = [
 ]],
 ["remember", 5, [
  ["* i remember *", [
-     "Do you often think of (2) ?",
+     "Do you have other memories related to (2) ?",
      "Does thinking of (2) bring anything else to mind ?",
-     "What else do you recollect ?",
-     "Why do you remember (2) just now ?",
+     "What else do you remember ?",
+     "Does remembering (2) spark any other ideas ?",
      "What in the present situation reminds you of (2) ?",
-     "What is the connection between me and (2) ?",
+     "Why are you remembering (2) right now?",
      "What else does (2) remind you of ?"
   ]],
  ["* do you remember *", [
-     "Did you think I would forget (2) ?",
-     "Why do you think I should recall (2) now ?",
+     "I haven't forgotten (2) ?",
+     "Why is it important to remember (2) now ?",
      "What about (2) ?",
      "goto what",
      "You mentioned (2) ?"
@@ -137,19 +137,13 @@ var elixaKeywords = [
 ]],
 ["forget", 5, [
  ["* i forget *", [
-     "Can you think of why you might forget (2) ?",
-     "Why can't you remember (2) ?",
-     "How often do you think of (2) ?",
-     "Does it bother you to forget that ?",
-     "Could it be a mental block ?",
-     "Are you generally forgetful ?",
-     "Do you think you are suppressing (2) ?"
+     "We are learning so much herer -- I can understand why you might forget (2) !  Is there someone else you could ask?",
+     "Why do you think you can't remember (2) ?",
+     "Maybe you are just rusty on (2) ?  Do you have any older projects you could look at for reference?",
+     "Maybe you do remember (2), but you have been working too hard on it ... perhaps take a break and see if it comes back to you!",
   ]],
  ["* did you forget *", [
      "Why do you ask ?",
-     "Are you sure you told me ?",
-     "Would it bother you if I forgot (2) ?",
-     "Why should I recall (2) just now ?",
      "goto what",
      "Tell me more about (2)."
   ]]
@@ -159,21 +153,19 @@ var elixaKeywords = [
      "Do you think it's likely that (2) ?",
      "Do you wish that (2) ?",
      "What do you know about (2) ?",
-     "Really, if (2) ?",
      "What would you do if (2) ?",
      "But what are the chances that (2) ?",
      "What does this speculation lead to ?"
   ]]
 ]],
-["dreamed", 4, [
+["dreamed", 1, [
  ["* i dreamed *", [
-     "Really, (2) ?",
      "Have you ever fantasized (2) while you were awake ?",
      "Have you ever dreamed (2) before ?",
      "goto dream"
   ]]
 ]],
-["dream", 3, [
+["dream", 1, [
  ["*", [
      "What does that dream suggest to you ?",
      "Do you dream often ?",
@@ -185,40 +177,39 @@ var elixaKeywords = [
  ["*", [
      "You don't seem quite certain.",
      "Why the uncertain tone ?",
-     "Can't you be more positive ?",
      "You aren't sure ?",
      "Don't you know ?",
      "How likely, would you estimate ?"
   ]]
 ]],
-["name", 15, [
- ["*", [
-     "I am not interested in names.",
-     "I've told you before, I don't care about names -- please continue."
-  ]]
-]],
+// ["name", 15, [
+//  ["*", [
+//      "I am not interested in names.",
+//      "I've told you before, I don't care about names -- please continue."
+//   ]]
+// ]],
 ["deutsch", 0, [
  ["*", [
      "goto xforeign",
-     "I told you before, I don't understand German."
+     "Sorry, I don't understand German."
   ]]
 ]],
 ["francais", 0, [
  ["*", [
      "goto xforeign",
-     "I told you before, I don't understand French."
+     "Sorry, I don't understand French."
   ]]
 ]],
 ["italiano", 0, [
  ["*", [
      "goto xforeign",
-     "I told you before, I don't understand Italian."
+     "Sorry, I don't understand Italian."
   ]]
 ]],
 ["espanol", 0, [
  ["*", [
      "goto xforeign",
-     "I told you before, I don't understand Spanish."
+     "Sorry, I don't understand Spanish."
   ]]
 ]],
 ["xforeign", 0, [
@@ -228,21 +219,21 @@ var elixaKeywords = [
 ]],
 ["hello", 0, [
  ["*", [
-     "How do you do.  Please state your problem.",
-     "Hi.  What seems to be your problem ?"
+     "Hi!  Nice to see you again here in the Denver Love Bubble!",
+     "Hi!  Do you have a troubleshooting problem you want to talk through?"
   ]]
 ]],
-["computer", 50, [
- ["*", [
-     "Do computers worry you ?",
-     "Why do you mention computers ?",
-     "What do you think machines have to do with your problem ?",
-     "Don't you think computers can help people ?",
-     "What about machines worries you ?",
-     "What do you think about machines ?",
-     "You don't think I am a computer program, do you ?"
-  ]]
-]],
+// ["computer", 50, [
+//  ["*", [
+//      "Do computers worry you ?",
+//      "Why do you mention computers ?",
+//      "What do you think machines have to do with your problem ?",
+//      "Don't you think computers can help people ?",
+//      "What about machines worries you ?",
+//      "What do you think about machines ?",
+//      "You don't think I am a computer program, do you ?"
+//   ]]
+// ]],
 ["am", 0, [
  ["* am i *", [
      "Do you believe you are (2) ?",
@@ -286,7 +277,6 @@ var elixaKeywords = [
      "Why are you concerned over my (2) ?",
      "What about your own (2) ?",
      "Are you worried about someone else's (2) ?",
-     "Really, my (2) ?",
      "What makes you think of my (2) ?",
      "Do you want my (2) ?"
   ]]
@@ -301,7 +291,6 @@ var elixaKeywords = [
      "goto what"
   ]],
  ["* i was *", [
-     "Were you really ?",
      "Why do you tell me you were (2) now ?",
      "Perhaps I already know you were (2)."
   ]],
@@ -324,13 +313,12 @@ var elixaKeywords = [
   ]],
  ["* i am* @sad *", [
      "I am sorry to hear that you are (3).",
-     "Do you think coming here will help you not to be (3) ?",
+     "I don't know if I can help you be less (3), but I can try!",
      "I'm sure it's not pleasant to be (3).",
      "Can you explain what made you (3) ?"
   ]],
  ["* i am* @happy *", [
-     "How have I helped you to be (3) ?",
-     "Has your treatment made you (3) ?",
+     "Have I helped you to be (3) ?",
      "What makes you (3) just now ?",
      "Can you explain why you are suddenly (3) ?"
   ]],
@@ -348,7 +336,6 @@ var elixaKeywords = [
  ["* i am *", [
      "Is it because you are (2) that you came to me ?",
      "How long have you been (2) ?",
-     "Do you believe it is normal to be (2) ?",
      "Do you enjoy being (2) ?",
      "Do you know anyone else who is (2) ?"
   ]],
@@ -429,13 +416,11 @@ var elixaKeywords = [
      "Who do you think you are talking about ?"
   ]],
  ["*", [
-     "Are you saying no just to be negative?",
-     "You are being a bit negative.",
      "Why not ?",
      "Why 'no' ?"
   ]]
 ]],
-["my", 2, [
+["my", 0, [
  ["$ * my *", [
      "Does that have anything to do with the fact that your (2) ?",
      "Lets discuss further why your (2).",
@@ -449,10 +434,10 @@ var elixaKeywords = [
      "What else comes to your mind when you think of your (3) ?"
   ]],
  ["* my *", [
-     "Your (2) ?",
-     "Why do you say your (2) ?",
-     "Does that suggest anything else which belongs to you ?",
-     "Is it important to you that your (2) ?"
+     "Your (2) ? Tell me more!",
+     "Have you encountered anything similar to your (2) before?",
+     "Does that remind you of a similar problem ?",
+     "Do you think there is any workaround for your (2) ?"
   ]]
 ]],
 ["can", 0, [
@@ -463,7 +448,6 @@ var elixaKeywords = [
      "Perhaps you would like to be able to (2) yourself."
   ]],
  ["* can i *", [
-     "Whether or not you can (2) depends on you more than on me.",
      "Do you want to be able to (2) ?",
      "Perhaps you don't want to (2).",
      "goto what"
