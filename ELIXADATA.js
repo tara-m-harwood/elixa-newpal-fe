@@ -5,7 +5,7 @@
 var elixaInitials = [
 "Hi! Are you having some problems with your code?  Tell me about it!",
 "Do you need someone to talk to about your code? I'm not sure if I can help but I can give it a try!",
-"Hi Friend!  What is going on?",
+"Hi Friend!  Is your code giving you trouble? What is going on?",
 "Do you need some troubleshooting help?  Talk me through it!"
 ];
 
@@ -67,7 +67,8 @@ var elixaSynons = {
 "family": ["mother", "mom", "father", "dad", "sister", "brother", "wife", "children", "child"],
 "happy": ["elated", "glad", "better"],
 "sad": ["unhappy", "depressed", "sick"],
-"apologise": ["apologize", "apology"]
+"apologise": ["apologize", "apology"],
+"Javascript": ["JS"]
 };
 
 var elixaKeywords = [
@@ -87,6 +88,21 @@ var elixaKeywords = [
     ]]
   ]]
 */
+
+
+  ["Javascript", 50, [
+    ["* Javascript *", [
+      "Are you including 'defer' in your script tags?  My friend Damon warned me about that!",
+      "Sometimes my friend Tara mixes up '=' with '==' or '==='.  Could that be it?",
+      "What does the console.log say?  Is there anything else you could log that might give you a clue?"
+    ]],
+    ["* Javascript * fetch *", [
+      "Is it working in Postman?",
+      "Maybe the problem is on the really on the backend?",
+      "Are you sure that JSON is exactly what is expected?  My friend Arielle taught me that one!"
+    ]]
+  ]],
+
 
 ["xnone", 0, [
  ["*", [
