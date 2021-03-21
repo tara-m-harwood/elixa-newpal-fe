@@ -53,20 +53,14 @@
             // no input and no saved lines -> output initial
 // TARA CODE            
             console.log("initial lines")
+
             f.e_display.value = '\n';          
             var initial = 'ELIXA: ' + elixa.getInitial();
             elixaLines.push(initial);
-
-            // var i;
-            // var extraBlankLines
-            // extraBlankLines = '\n'
-            // for (i = 0; i <20; i++) {
-            //   extraBlankLines.append('\n') 
-            // }
+// TARA CODE
             extraBlankLines = '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
 
-            f.e_display.value = extraBlankLines + initial + '\n';
-// TARA CODE  ^^ messed with the line above to get extra linebreaks before the input            
+            f.e_display.value = extraBlankLines + initial + '\n';     
           }
           f.e_input.value = '';
           f.e_input.focus();
