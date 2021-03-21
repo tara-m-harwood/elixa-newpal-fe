@@ -51,10 +51,16 @@
           }
           else if (elixaLines.length == 0) {
             // no input and no saved lines -> output initial
-            console.log("inital lines")
+// TARA CODE            
+            console.log("initial lines")
+
+            f.e_display.value = '\n';          
             var initial = 'ELIXA: ' + elixa.getInitial();
             elixaLines.push(initial);
-            f.e_display.value = initial + '\n';
+// TARA CODE
+            extraBlankLines = '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+
+            f.e_display.value = extraBlankLines + initial + '\n';     
           }
           f.e_input.value = '';
           f.e_input.focus();
@@ -141,9 +147,9 @@
               <!-- add ELIXA code below -->
               <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
                 <FORM NAME="e_form" onsubmit="elixaStep();return false">
-                <TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="60" ROWS="20"></TEXTAREA></TD></TR>
+                <TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="80" ROWS="25"></TEXTAREA></TD></TR>
                 <TR VALIGN="middle">
-                  <TD><INPUT TYPE="text" NAME="e_input" SIZE="50"></TD>
+                  <TD><INPUT TYPE="text" NAME="e_input" SIZE="80"></TD>
                   <TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elixaReset()',100)"></TD>
                 </TR>
                 </FORM>
