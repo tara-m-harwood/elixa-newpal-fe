@@ -5,7 +5,7 @@
 var elixaInitials = [
 "Hi! Are you having some problems with your code?  Tell me about it!",
 "Do you need someone to talk to about your code? I'm not sure if I can help but I can give it a try!",
-"Hi Friend!  What is going on?",
+"Hi Friend!  Is your code giving you trouble? What is going on?",
 "Do you need some troubleshooting help?  Talk me through it!"
 ];
 
@@ -67,39 +67,106 @@ var elixaSynons = {
 "family": ["mother", "mom", "father", "dad", "sister", "brother", "wife", "children", "child"],
 "happy": ["elated", "glad", "better"],
 "sad": ["unhappy", "depressed", "sick"],
-"apologise": ["apologize", "apology"]
+"apologise": ["apologize", "apology"],
+"Javascript": ["JS", "frontend"]
 };
 
 var elixaKeywords = [
 
-/*
-  Array of
-  ["<key>", <rank>, [
-    ["<decomp>", [
-      "<reasmb>",
-      "<reasmb>",
-      "<reasmb>"
-    ]],
-    ["<decomp>", [
-      "<reasmb>",
-      "<reasmb>",
-      "<reasmb>"
-    ]]
-  ]]
-*/
 
-["xnone", 0, [
+  // Array of
+  // ["<key>", <rank>, [
+  //   ["<decomp>", [
+  //     "<reasmb>",
+  //     "<reasmb>",
+  //     "<reasmb>"
+  //   ]],
+  //   ["<decomp>", [
+  //     "<reasmb>",
+  //     "<reasmb>",
+  //     "<reasmb>"
+  //   ]]
+  // ]]
+
+  ["ruby", 75, [
+    ["* ruby *", [
+      "Would a binding.pry help you figure it out?  Or maybe a byebug?",
+      "Error messages in Ruby always have a line number ... what does it say in that line of your code?",
+      "Are you sure all your 'require' statements set up correctly in your Ruby files?  Sometimes it helpful to double-check those file paths!",
+      "One thing that is always hard for me in Ruby is that sometimes the syntax has a colon as the last: character: but other times it is the :first :character! So confusing?",
+      "My friend Ahmed taught me about converting strings to integer and floats before doing any math. Attribute types can be tricky!"
+    ]],
+    ["<* ruby * method *", [
+      "Are you sure you are invoking the method you wrote?",
+      "Hmmmm ...what value is that method actually returning?  It might not be the same as your 'puts'!",
+      "Is that a class method, or an instance method?",
+      "Perhaps you are passing in a string instead of an Object?  Or maybe vice-versa?"
+    ]],
+    ["<* ruby * TypeError *", [
+      "Oh, I've gotten TypeErrors before! Everytime it happens to me it is because I'm trying to operate on a string but the thing I'm working with is actually an array or hash.  Could that be it?"
+    ]]
+  ]],
+
+  ["rails", 75, [
+    ["* rails *", [
+      "Could it be something with your routes?  You can always use the 'rails routes' command to see them all.",
+      "When I had a Rails error it turned out to be a controller issue -- I used a singualar where I needed a plural!",
+      "Did you remember to use the --api flag when you built your project?  Like my friend Ahmed always says 'If you don't use the --api flag, you're gonna have a bad time!",
+      "Perhaps you kicked off lite-server before your rails server? I hear that can mess up the port assignments.",
+      "Could it a problem with your CORS?  I always forget to change 'example.com' -- do you ever forget that?",
+      "Are you positive your URL pattern right for the endpoint you are hitting?",
+      "Is your schema what you expected?",
+      "Check your models again -- are your has_many and belongs_to relationships set up correctly?"      
+    ]]
+  ]],
+
+  ["lite-server", 75, [
+    ["* lite-server *", [
+      "Make sure you are in the right directory when you launch lite-server -- that one trips me up sometimes!",
+      "Do you think you might have kicked off lite-server before your backend server?"
+    ]]
+  ]],
+
+  ["server", 25, [
+    ["* server *", [
+      "Are you sure you are using the right port?"
+    ]]
+  ]],
+
+
+// *********
+
+
+  ["javascript", 50, [
+    ["* javascript *", [
+      "Are you including 'defer' in your script tags?  My friend Damon warned me about that!",
+      "Sometimes my friend Tara mixes up '=' with '==' or '==='.  Could that be it?",
+      "What does the console.log say?  Is there anything else you could log that might give you a clue?",
+      "Embarassing confession ... sometimes in JS I forget that interpolated strings need backticks."
+    ]],
+    ["* javascript * fetch *", [
+      "Is it working in Postman?",
+      "Maybe the problem is on the really on the backend?",
+      "Are you sure that JSON body is exactly what is expected, including the nesting?  My friend Arielle taught me that one!"
+    ]]
+  ]],
+
+
+["xnone", 25, [
  ["*", [
      "Hmmmm ... I don't totally understand that.  Can you explain again for me?",
      "What does that suggest to you?",
-     "I don't know much about that but I love learning new things!  Would you chat it through with me?",
-     "I'm not sure, but I'd love to hear more about it!",
-     "Oooh, sounds tricky! What have you tried so far?",
+     "Hmmmm .... that one is too tough for me.  Have you tried posting on #denver-tech-questions?  I learned everything I know from there!",
+     "Are you sure you are in the right directory?",
+     "Have you tried running bundle install again?",
      "I'm just starting out, so I don't know as much as you do ... yet! Can you tell me more?",
-     "Could you use something like console.log or byebug or binding.pry to help you figure it out?",
-     "Are you getting any error messages that might have a clue?  My friend Blake taught me 'always read the error!'"
+     "Are you getting any error messages that might have a clue?  My friend Blake taught me 'always read the error!'",
+     "My friend Tiffany taught me: 'Always check spelling and casing when your code looks correct, but it's not doing what it is supposed to do.",
+     "Do you use the VSCode extension 'Bracket Pair Colorizer'?  My pal Tiffany says that has saved her so many times!",
+     "camelCase, snake_case, kebab-case, PascalCase -- sometimes I get them mixed up! Does that ever happen to you?"
   ]]
 ]],
+
 ["sorry", 0, [
  ["*", [
      "No worries!",
@@ -546,7 +613,6 @@ var elixaKeywords = [
      "Can you think of a specific example ?",
      "When ?",
      "What incident are you thinking of ?",
-     "Really, always ?"
   ]]
 ]],
 ["alike", 10, [
