@@ -64,9 +64,9 @@
   </head>
   <body onload="window.setTimeout('elixaReset()',100)">
       
-  <div class="slack">
+    <div id="main-container">
       
-      <div class="sidebar">
+      <div id="left-sidebar">
         <button class="team-menu">
           <div class="team-menu__info">
             <h1 class="team-menu__name">Denver Love Bubble</h1>
@@ -125,22 +125,11 @@
             <li class="dm__item">
               <button class="dm__button"><span>Brian Firooz</span></button>
             </li>
-            <!-- <li class="dm__item">
-              <button class="dm__button dm__button--online"><span>Luna Lovegood</span></button>
-            </li>
-            <li class="dm__item">
-              <button class="dm__button"><span>Cho Chang</span></button>
-            </li>
-            <li class="dm__item">
-              <button class="dm__button"><span>Seamus Finnigan</span></button>
-            </li>
-            <li class="dm__item">
-              <button class="dm__button dm__button--online"><span>Lavender Brown</span></button>
-            </li> -->
           </ul>
         </div>
       </div>
-      <div class="main">
+
+      <div id="center-panel">
         <header class="main__header">
           <p>This is the very beginning of your direct message history with @ELIXA. Only the two of you are in this conversation, and no one else can join it.</p>
           <button class="ion-android-close"></button>
@@ -176,6 +165,11 @@
           </div>
         </div>
       </div>
+
+      <div id="right-sidebar">
+        <img id="details-image" src="elixa_sidebar_long.png"/>
+      </div>
+      
     </div>
 
   </body>
