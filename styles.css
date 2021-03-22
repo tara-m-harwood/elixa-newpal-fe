@@ -71,8 +71,13 @@ button:active {
   overflow: scroll;
 }
 
-.message-item {
+.msg-item {
   padding: 5px;
+  z-index: -1;
+}
+
+#msg-input {
+  width: 90%;
 }
 
 .team-menu {
