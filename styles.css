@@ -57,6 +57,11 @@ button:active {
   display: flex;
 }
 
+.message-item {
+  border-style: dashed;
+  border-color: blue;
+}
+
 .team-menu {
   width: 100%;
   display: flex;

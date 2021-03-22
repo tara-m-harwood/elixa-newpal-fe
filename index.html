@@ -8,65 +8,6 @@
       <title>Elixa on Slack</title>
       <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixabot.js"></SCRIPT>
       <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixadata.js"></SCRIPT>
-      
-      <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
-  
-        var elixa = new ElixaBot();
-        var elixaLines = new Array();
-        
-        var displayCols = 60;
-        var displayRows = 20;
-        
-        function elixaReset() {
-          elixa.reset();
-          elixaLines.length = 0;
-          elixaStep();
-        }
-        
-        function elixaStep() {
-          var f = document.forms.e_form;
-          var userinput = f.e_input.value;
-          if (elixa.quit) {
-            f.e_input.value = '';
-            if (confirm("This session is over.\nStart over?")) elixaReset();
-            f.e_input.focus();
-            return;
-          }
-          else if (userinput != '') {
-            var usr = 'YOU:   ' + userinput;
-            var rpl ='ELIXA: ' + elixa.transform(userinput);
-            elixaLines.push(usr);
-            elixaLines.push(rpl);
-            // display nicely
-            // (fit to textarea with last line free - reserved for extra line caused by word wrap)
-            var temp  = new Array();
-            var l = 0;
-            for (var i=elixaLines.length-1; i>=0; i--) {
-              l += 1 + Math.floor(elixaLines[i].length/displayCols);
-              if (l >= displayRows) break
-              else temp.push(elixaLines[i]);
-            }
-            elixaLines = temp.reverse();
-            f.e_display.value = elixaLines.join('\n');
-          }
-          else if (elixaLines.length == 0) {
-            // no input and no saved lines -> output initial
-// TARA CODE            
-            console.log("initial lines")
-
-            f.e_display.value = '\n';          
-            var initial = 'ELIXA: ' + elixa.getInitial();
-            elixaLines.push(initial);
-// TARA CODE
-            // extraBlankLines = '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
-
-            f.e_display.value = initial + '\n';     
-          }
-          f.e_input.value = '';
-          f.e_input.focus();
-        }
-
-        </SCRIPT>
   </head>
   <body onload="window.setTimeout('elixaReset()',100)">
       
@@ -143,7 +84,13 @@
         <div class="main__content">
           <div class="main__container">
             <h4 class="main__h4">Today </h4>
-            <span id="test-span"></span>
+
+            <div id="msg-container">
+              <!-- messages get appended here -->
+            </div>
+
+            <div id="try-two"></div>
+
             <section class="main__section">
               <!-- add ELIXA code below -->
               <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
@@ -178,6 +125,75 @@
       </div>
       
     </div>
+      <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" defer>
+  
+        var elixa = new ElixaBot();
+        var elixaLines = new Array();
+        
+        var displayCols = 60;
+        var displayRows = 20;
+        
+        function elixaReset() {
+          elixa.reset();
+          elixaLines.length = 0;
+          elixaStep();
+        }
+        
+        function elixaStep() {
+          var f = document.forms.e_form;
+          var userinput = f.e_input.value;
+          if (elixa.quit) {
+            f.e_input.value = '';
+            if (confirm("This session is over.\nStart over?")) elixaReset();
+            f.e_input.focus();
+            return;
+          }
+          else if (userinput != '') {
+            var usr = 'YOU:   ' + userinput;
+            var rpl ='ELIXA: ' + elixa.transform(userinput);
+            elixaLines.push(usr);
+            elixaLines.push(rpl);
 
+// TARA <CODE>
+            appendMessage(usr)
+            appendMessage(rpl)
+// TARA </CODE>
+
+            // display nicely
+            // (fit to textarea with last line free - reserved for extra line caused by word wrap)
+            var temp  = new Array();
+            var l = 0;
+            for (var i=elixaLines.length-1; i>=0; i--) {
+              l += 1 + Math.floor(elixaLines[i].length/displayCols);
+              if (l >= displayRows) break
+              else temp.push(elixaLines[i]);
+            }
+            elixaLines = temp.reverse();
+            f.e_display.value = elixaLines.join('\n');
+          }
+          else if (elixaLines.length == 0) {
+            // no input and no saved lines -> output initial    
+            console.log("initial lines")
+
+            f.e_display.value = '\n';          
+            var initial = 'ELIXA: ' + elixa.getInitial();
+            elixaLines.push(initial);
+
+            f.e_display.value = initial + '\n';     
+          }
+          f.e_input.value = '';
+          f.e_input.focus();
+        }
+
+
+        function appendMessage(message){
+          const $msgItem = document.createElement('div')
+          const $msgContainer = document.querySelector('#msg-container')
+          $msgItem.classList += 'message-item'
+          $msgItem.textContent = message
+          $msgContainer.append($msgItem)
+        }
+
+        </SCRIPT>
   </body>
 </html>
