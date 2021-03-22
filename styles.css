@@ -65,9 +65,9 @@ button:active {
 
 #msg-column {
   position: absolute;
-  bottom: 0px;
+  bottom: 100px;
   margin-bottom: 10px;
-  /* height: calc(100% - 300px); */
+  max-height: 75%;
   overflow: scroll;
 }
 
