@@ -63,7 +63,12 @@ button:active {
   display: flex;
 }
 
-#msg-container {
+#msg-column {
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 10px;
+  /* height: calc(100% - 300px); */
+  overflow: scroll;
 }
 
 .message-item {
