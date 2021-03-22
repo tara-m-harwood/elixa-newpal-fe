@@ -46,6 +46,12 @@ button {
 ul {
   padding: 0;
 }
+
+#tty-display {
+  color: white;
+  border-color: white;
+}
+
 button:focus,
 button:hover,
 button:active {
@@ -57,9 +63,11 @@ button:active {
   display: flex;
 }
 
+#msg-container {
+}
+
 .message-item {
-  border-style: dashed;
-  border-color: blue;
+  padding: 5px;
 }
 
 .team-menu {

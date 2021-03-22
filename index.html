@@ -5,11 +5,12 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type = "text/css" href = "styles.css">
+      <!-- <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"/> -->
       <title>Elixa on Slack</title>
       <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixabot.js"></SCRIPT>
       <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elixadata.js"></SCRIPT>
   </head>
-  <body onload="window.setTimeout('elixaReset()',100)">
+  <body onload="window.setTimeout(elixaReset(),100)">
       
     <div id="main-container">
       
@@ -95,7 +96,11 @@
               <!-- add ELIXA code below -->
               <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
                 <FORM NAME="e_form" onsubmit="elixaStep();return false">
-                <TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="80" ROWS="25"></TEXTAREA></TD></TR>
+                <TR><TD COLSPAN="2">
+           <!-- TARA IS PAINTING OVER THIS WITH WHITE FONT FOR NOW -->
+                  <textarea id="tty-display" NAME="e_display" COLS="80" ROWS="0"></textarea>
+           <!-- FIX FIX FIX        -->
+                </TD></TR>
                 <TR VALIGN="middle">
                   <TD><INPUT TYPE="text" NAME="e_input" SIZE="80"></TD>
                   <TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elixaReset()',100)"></TD>
@@ -177,8 +182,12 @@
 
             f.e_display.value = '\n';          
             var initial = 'ELIXA: ' + elixa.getInitial();
-            elixaLines.push(initial);
+            // elixaLines.push(initial);
+// TARA <CODE>
 
+            appendMessage(initial)
+
+// TARA </CODE>  
             f.e_display.value = initial + '\n';     
           }
           f.e_input.value = '';
