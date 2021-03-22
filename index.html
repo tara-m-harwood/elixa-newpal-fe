@@ -96,15 +96,16 @@
                 <!-- add ELIXA code below -->
                 <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
                   <FORM NAME="e_form" onsubmit="elixaStep();return false">
-                  <TR><TD COLSPAN="2">
-            <!-- TARA IS PAINTING OVER THIS WITH WHITE FONT FOR NOW -->
-                    <textarea id="tty-display" NAME="e_display" COLS="80" ROWS="0"></textarea>
-            <!-- FIX FIX FIX        -->
-                  </TD></TR>
-                  <TR VALIGN="middle">
-                    <TD><INPUT TYPE="text" NAME="e_input" SIZE="80"></TD>
-                    <TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elixaReset()',100)"></TD>
-                  </TR>
+                    <TR><TD COLSPAN="2">
+              <!-- TARA IS PAINTING OVER THIS WITH WHITE FONT FOR NOW -->
+                      <textarea id="tty-display" NAME="e_display" COLS="80" ROWS="0"></textarea>
+              <!-- FIX FIX FIX        -->
+                    </TD></TR>
+                    <TR VALIGN="middle">
+                      <TD><INPUT TYPE="text" NAME="e_input" SIZE="80"></TD>
+                      <TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> 
+                      <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elixaReset()',100)"></TD>
+                    </TR>
                   </FORM>
                   </TABLE>
                   </CENTER>
@@ -121,7 +122,11 @@
                   </TR>
                   </TABLE>
                   <div>
-                     <textarea id="msg-input" NAME="tara_e_display"></textarea>
+                     <form id="msg-form" name="e_form" onsubmit="elixaStep();return false">
+                        <textarea id="tty-display" NAME="e_display" COLS="80" ROWS="0"></textarea>
+                        <input id="msg-input" type="text" NAME="e_input"/>
+                        <input type="submit" style="display: none" />
+                     </form>
                   </div>
               </section>
             </div>
