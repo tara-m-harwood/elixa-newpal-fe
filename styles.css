@@ -32,32 +32,42 @@ body {
 #left-panel {
   color: #fff;
   background-color: #4d394b;
-  flex-grow: 1;
-  min-width: 20%; 
+  min-width: 20%;
+  max-width: 20%;
+
 }
 
 #right-panel {
-  flex-grow: 1;
+  min-width: 20%;
+  max-width: 20%;
 }
 
 /* all other left panel elements at the bottom */
 
 #center-panel {
   background-color: #fff;
-  flex-grow: 3;
+  /* flex-grow: 3; */
   max-height: 100vh;
   overflow:hidden;
 }
 
 #center-header {
+  background-color: #fff;
   z-index: 2;
+  opacity: 100;
 }
 
 #msg-area {
-position: absolute;
-bottom:100px;
-margin-bottom: 10px;
-overflow: scroll;
+  position: absolute;
+  bottom: 50px;
+  overflow: scroll;
+  width: 59vw;
+  max-height: 80%;
+}
+
+#msg-container {
+  /* overflow: scroll; */
+  max-width: 100%;
 }
 
 .msg-item {
@@ -65,6 +75,10 @@ overflow: scroll;
   z-index: -1;
 }
 
+#msg-form {
+  position: fixed;
+  bottom:10px;
+}
 /* right panel */
 
 #details-image {
