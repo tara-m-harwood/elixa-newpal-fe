@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
-    <script language="JavaScript" type="text/javascript"></script>
-    <script
-      language="JavaScript"
-      type="text/javascript"
-      src="elixadata.js"
-    ></script>
+    <script language="JavaScript" type="text/javascript" src="elixabot.js"></script>
+    <script language="JavaScript" type="text/javascript" src="elixadata.js"></script>
 
     <title>Elixa on Slack</title>
   </head>
@@ -100,12 +96,10 @@
         </div>
 
         <div id="msg-area">
-          <form
-            id="msg-form"
-            name="e_form"
-            autocomplete="off"
-            onsubmit="elixaStep();return false"
-          >
+          <div id="msg-container">
+            <!-- append messages here -->
+          </div>
+          <form id="msg-form" name="e_form" autocomplete="off" onsubmit="elixaStep();return false">
             <input id="msg-input" type="text" name="e_input" />
             <input type="submit" style="display: none" />
           </form>
