@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <script language="JavaScript" type="text/javascript" src="elixabot.js"></script>
+    <script language="JavaScript" type="text/javascript" src="elixadata.js"></script>
+
+    <title>ELIXA</title>
+  </head>
+
+  <body onload="window.setTimeout(elixaReset(),100)">
+    <div id="panel-container">
+      <div id="left-panel">
+        <div id="left-header">
+          <h1 id="team-title">Denver Love Bubble</h1>
+          <br />
+          <h4>You</h4>
+          <div>All Threads</div>
+        </div>
+        <div class="channels">
+          <h2 class="channels__heading">
+            <span>Channels <span class="channels__number">(3)</span> </span>
+          </h2>
+          <ul class="channels__list">
+            <li class="channels__item">
+              <button class="channels__button">
+                <span>denver-se-announce</span>
+              </button>
+            </li>
+            <li class="channels__item">
+              <button class="channels__button">
+                <span>denver-tech-questions</span>
+              </button>
+            </li>
+            <li class="channels__item">
+              <button class="channels__button">
+                <span>denver-random</span>
+              </button>
+            </li>
+            <li class="channels__item">
+              <button class="channels__button">
+                <span>denver-chatbot-info</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="dm">
+          <h2 class="dm__heading">
+            <span>Direct messages <span class="dm__number">(5)</span> </span>
+          </h2>
+          <ul class="dm__list">
+            <li class="dm__item">
+              <button
+                class="dm__button dm__button--slackbot dm__button--active"
+              >
+                <span>Elixa Newpal</span>
+              </button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online">
+                <span>Tara Harwood</span>
+              </button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button"><span>Ahmed Gaber</span></button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online">
+                <span>Damon Chivers</span>
+              </button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button dm__button--online">
+                <span>Kyle Coberly</span>
+              </button>
+            </li>
+            <li class="dm__item">
+              <button class="dm__button"><span>Brian Firooz</span></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="center-panel">
+        <div id="center-header">
+          <span>
+            This is the very beginning of your direct message history with
+            @ELIXA. Only the two of you are in this conversation, and no one
+            else can join it.
+          </span>
+        </div>
+        <div id="msg-area">
+          <div id="msg-container">
+            <!-- append messages here -->
+          </div>
+          <form id="msg-form" name="e_form" autocomplete="off" onsubmit="elixaStep();return false">
+            <input id="msg-input" type="text" name="e_input"/>
+            <input type="submit" style="display: none" />
+          </form>
+        </div>
+      </div>
+
+      <div id="right-panel">
+        <img id="details-image" src="elixa_sidebar_long.png" />
+      </div>
+    </div>
+
+    <script language="JavaScript" type="text/javascript" defer>
+      var elixa = new ElixaBot();
+      var elixaLines = new Array();
+
+      var displayCols = 60;
+      var displayRows = 20;
+
+      function elixaReset() {
+        elixa.reset();
+        elixaLines.length = 0;
+        elixaStep();
+      }
+
+      function elixaStep() {
+        var f = document.forms.e_form;
+        var userinput = f.e_input.value;
+        if (elixa.quit) {
+          f.e_input.value = "";
+          if (confirm("This session is over.\nStart over?")) elixaReset();
+          f.e_input.focus();
+          return;
+        } else if (userinput != "") {
+          var usr = "YOU:   " + userinput;
+          var rpl = "ELIXA: " + elixa.transform(userinput);
+          elixaLines.push(usr);
+          elixaLines.push(rpl);
+
+          appendMessage(usr);
+          appendMessage(rpl);
+          // TARA - code below still needs to be freed from the the teletype interface
+
+          // display nicely
+          // (fit to textarea with last line free - reserved for extra line caused by word wrap)
+          var temp = new Array();
+          var l = 0;
+          for (var i = elixaLines.length - 1; i >= 0; i--) {
+            l += 1 + Math.floor(elixaLines[i].length / displayCols);
+            if (l >= displayRows) break;
+            else temp.push(elixaLines[i]);
+          }
+          elixaLines = temp.reverse();
+          // f.e_display.value = elixaLines.join("\n");
+        } else if (elixaLines.length == 0) {
+          // no input and no saved lines -> output initial
+
+          // f.e_display.value = "\n";
+          var initial = "ELIXA: " + elixa.getInitial();
+          // elixaLines.push(initial);
+          // TARA <CODE>
+
+          appendMessage(initial);
+
+          // TARA </CODE>
+          // f.e_display.value = initial + "\n";
+        }
+        f.e_input.value = "";
+        f.e_input.focus();
+      }
+
+      function appendMessage(message) {
+        const $msgItem = document.createElement("div");
+        const $msgContainer = document.querySelector("#msg-container");
+        $msgItem.classList += "msg-item";
+        $msgItem.textContent = message;
+        $msgContainer.append($msgItem);
+      }
+    </script>
+  </body>
+</html>

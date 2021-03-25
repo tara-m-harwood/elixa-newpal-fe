@@ -1,218 +1,146 @@
-:root {
-  --column-bg: #4d394b;
-  --menu-bg-hover: #3e313c;
-  --active-item: #00ffba;
-  --active-item-text: #680001;
-  --hover-item: #be0002;
-  --text-color: #fff;
-  --active-presence: #00ffba;
-  --mention-badge: #de4c0d;
-}
-* {
-  box-sizing: border-box;
-}
 html,
 body {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  font-family: "Lato", Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  color: #555459;
-  overflow: hidden;
-  background-color: #4d394b;
+    margin: auto;  
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-family: "Lato", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    /* background-color: #ee1fd9; */
+    background-color: #fff;
 }
 
-#panel-container {
-  display: inline-flex;
-  margin: 0;
+#search-bar {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #350E36;
+    text-align: center;
+    padding-top: 10px;
 }
+
+#main { 
+    /* background-color: #eeea1f; */
+    background-color: #fff;    
+    width: 1440px;
+    height: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* LEFT PANEL */
 
 #left-panel {
-  color: #fff;
-  background-color: #4d394b;
-  min-width: 20%;
-  max-width: 20%;
-
+    height: 100%;
+    padding-left: 15px;
+    color: #fff;
+    background-color: #400F41;
+    flex: .5;
 }
-
-/* all other left panel elements at the bottom */
-
-#center-panel {
-  background-color: #fff;
-  max-height: 100vh;
-  overflow:hidden;
-}
-
-#center-header {
-  background-color: #fff;
-  z-index: 2;
-  opacity: 100;
-  padding: 2rem;
-  border-bottom: solid;
-  border-width: thin;
-}
-
-#today {
-padding-left: 50px;
-}
-
-#msg-area {
-  position: absolute;
-  bottom: 50px;
-  overflow: scroll;
-  width: 54vw;
-  max-height: 77%;
-  display:flex;
-  flex-direction: column-reverse;
-  padding-left: 30px;
-}
-
-#msg-container {
-  /* overflow: scroll; */
-  max-width: 100%;
-}
-
-.msg-item {
-  padding: .75rem;
-  z-index: -1;
-}
-
-#msg-form {
-  position: fixed;
-  bottom:10px;
-}
-
-#msg-input {
-  width: 39rem;
-}
-
-/* right panel */
-
-#details-image {
-  padding-right: 20px;
-}
-
-/* stuff from the slack theme I need to keep */
-#left-header {
-  width: 100%;
-  padding: 18px 18px 0;
-}
-
 h1#team-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
 }
 
-#details-image {
-  border: solid;
-  border-width: thin;
+h4, h5 {
+    padding-top: 10px;
 }
 
-button {
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-  font-size: inherit;
-  font-family: inherit;
-  text-align: left;
-  cursor: pointer;
+
+
+/* CENTER PANEL */
+
+#center-panel {
+    height: 100%;
+    /* background-color: #301fee; */
+    background-color: #fff;    
+    flex: 2;
 }
 
-button:focus,
-button:hover,
-button:active {
-  outline: none;
+#center-header {
+    width: 100%;
+    height: 88px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom-style:inset;
+    border-color: #eee;
 }
 
-ul {
-  padding: 1rem;
+img#elixa-center-header {
+    width: 100px;
+    height: 40px;
+    align-self: center;
 }
 
-.team-menu:hover {
-  background: var(--menu-bg-hover, #680001);
+
+#message-area {
+    width: 100%;
+    height: 400px;
+    /* background-color: #dd57a8; */
+    background-color: #fff;
+    display:flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
 }
 
-.channels,
-.dm {
-  margin: 0.5rem;
-  padding-right: 1rem;
+ul#message-list{
+    bottom: 50px;
+    flex-wrap: wrap;
 }
 
-.channels__button,
-.dm__button,
-.channels__heading,
-.dm__heading {
-  padding: 0 0 0 18px;
-  width: 100%;
-  color: var(--text-color, #fff);
+.msg-item {
+    padding: 15px;
 }
 
-.channels__number,
-.dm__number {
-  display: inline-block;
-  position: relative;
-  top: -1px;
-  margin-left: 2px;
-  font-size: 13px;
+
+#input-area {
+    width: 100%;
+    height: 178px;
+    /* background-color: #2ac44b; */
+    /* background-color: #fff;     */
+    display: grid;
+    justify-items: center;
+    background-image: url("slack-msg-background.png");
+    background-position: center;
+    position: relative;
+    background-size: cover;
 }
 
-.channels__heading,
-.dm__heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 2.1;
-  text-transform: uppercase;
+img#slack-msg-box {
+    width: 80%;
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.channels__list,
-.dm__list {
-  list-style-type: none;
+input#msg-input {
+    width: 600px;
+    height: 48px;
+    z-index: 4;
+    margin-top: 20px;
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.channels__button,
-.dm__button {
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
+
+/* RIGHT PANEL */
+
+#right-panel {
+    height: 100%;
+    /* background-color: #ee9b1f; */
+    background-color: #fff;    
+    flex: 1;
+    display: flex;
+    border-left-style:solid;
+    border-color: #eee;
 }
 
-.channels__button span,
-.channels__button:before,
-.dm__button:before {
-  padding: 0 0.3rem;
-}
-.channels__button:hover,
-.dm__button:hover {
-  background: var(--hover-item, #be0002);
+#test-dot {
+    font-size: 28px;
 }
 
-.channels__button:before {
-  content: "#";
-}
-
-.dm__button:before {
-  content: "\f401";
-  /* margin-right: 3px; */
-  font-family: "Ionicons";
-  font-size: 0.6rem;
-}
-
-.dm__button--online:before {
-  content: "\f21b";
-  color: var(--active-presence, #00ffba);
-}
-.dm__button--slackbot:before {
-  content: "\f141";
-  color: var(--active-presence, #00ffba);
-  font-size: 0.75rem;
-}
-.dm__button--active.dm__button--online:before,
-.dm__button--active.dm__button--slackbot:before {
-  color: var(--active-item-text, #680001);
+img#elixa-details-pane {
+    align-self: flex-end;
 }
