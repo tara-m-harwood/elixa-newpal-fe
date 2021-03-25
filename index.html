@@ -102,13 +102,13 @@
             f.e_input.focus();
             return;
           } else if (userinput != "") {
-            var usr = "YOU:   " + userinput;
-            var rpl = "ELIXA: " + elixa.transform(userinput);
+            var usr = userinput;
+            var rpl = elixa.transform(userinput);
             elixaLines.push(usr);
             elixaLines.push(rpl);
 
-            appendMessage(usr);
-            appendMessage(rpl);
+            appendMessage(usr, 0);
+            appendMessage(rpl, 1);
             // TARA - code below still needs to be freed from the the teletype interface
 
             // display nicely
@@ -126,18 +126,41 @@
             // no input and no saved lines -> output initial
 
             // f.e_display.value = "\n";
-            var initial = "ELIXA: " + elixa.getInitial();
-            appendMessage(initial);
+            var initial = elixa.getInitial();
+            // 1 is a boolean that indicates Elixa is the speaker
+            appendMessage(initial,1);
           }
           f.e_input.value = "";
           f.e_input.focus();
         }
 
-        function appendMessage(message) {
+        function appendMessage(message, elixa) {
+          const $msgList = document.querySelector("#msg-list");          
           const $msgItem = document.createElement("div");
-          const $msgList = document.querySelector("#msg-list");
           $msgItem.classList += "msg-item";
-          $msgItem.textContent = message;
+
+          const $msgName = document.createElement('span')
+          if (elixa) {
+              $msgName.textContent = "Elixa Newpal"
+          } else {
+              $msgName.textContent = "You"           
+          }
+          $msgName.classList += "msg-name"
+
+          const $msgContent = document.createElement('p')
+          $msgContent.textContent = message;
+          $msgContent.classList += "msg-content"
+
+          const $msgImage = document.createElement('img')
+          if (elixa) {
+            $msgImage.src = "elixa_avatar.png"
+          } else {  
+            $msgImage.src = "coder_avatar.png"          
+          }
+          $msgImage.classList += "msg-avatar"
+
+          $msgItem.append($msgImage, $msgName, $msgContent)
+
           $msgList.append($msgItem);
         }
       </script>
