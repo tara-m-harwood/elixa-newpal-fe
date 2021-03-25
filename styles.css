@@ -37,7 +37,7 @@ body {
     padding-left: 15px;
     color: #fff;
     background-color: #400F41;
-    flex: .5;
+    flex: .75;
 }
 h1#team-title {
   font-size: 16px;
@@ -72,7 +72,8 @@ h4, h5 {
 img#elixa-center-header {
     width: 100px;
     height: 40px;
-    align-self: center;
+    padding-top: 10px;
+    /* align-self: center; */
 }
 
 
@@ -91,8 +92,32 @@ ul#message-list{
     flex-wrap: wrap;
 }
 
+.msg-avatar { grid-area: avatar; }
+.msg-name { grid-area: name; }
+.msg-content { grid-area: message; }
+
 .msg-item {
-    padding: 15px;
+  display: grid;
+  grid-template-areas:
+    'avatar name name name name name'
+    'avatar message message message message message';
+  grid-gap: 1px;
+  align-content: flex-start;
+  justify-content: left;
+  align-items: flex-start;
+  justify-items: left;
+  padding: 10px;
+}
+
+.msg-avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+}
+
+span.msg-name {
+    font-weight: 700;
+    text-align: left;
 }
 
 
