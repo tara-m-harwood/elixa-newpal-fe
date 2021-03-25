@@ -8,7 +8,8 @@ body {
     font-family: "Lato", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
-    background-color: #ee1fd9;
+    /* background-color: #ee1fd9; */
+    background-color: #fff;
 }
 
 #search-bar {
@@ -21,7 +22,8 @@ body {
 }
 
 #main { 
-    background-color: #eeea1f;
+    /* background-color: #eeea1f; */
+    background-color: #fff;    
     width: 1440px;
     height: 900px;
     display: flex;
@@ -32,16 +34,28 @@ body {
 
 #left-panel {
     height: 100%;
+    padding-left: 15px;
+    color: #fff;
     background-color: #400F41;
-    flex: .75;
+    flex: .5;
 }
+h1#team-title {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+h4, h5 {
+    padding-top: 10px;
+}
+
 
 
 /* CENTER PANEL */
 
 #center-panel {
     height: 100%;
-    background-color: #301fee;
+    /* background-color: #301fee; */
+    background-color: #fff;    
     flex: 2;
 }
 
@@ -50,7 +64,9 @@ body {
     height: 88px;
     background-color: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    border-bottom-style:inset;
+    border-color: #eee;
 }
 
 img#elixa-center-header {
@@ -59,16 +75,34 @@ img#elixa-center-header {
     align-self: center;
 }
 
+
 #message-area {
     width: 100%;
     height: 400px;
-    background-color: #dd57a8;
+    /* background-color: #dd57a8; */
+    background-color: #fff;
+    display:flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
 }
+
+ul#message-list{
+    bottom: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}
+
+li{
+    padding: 30px;
+}
+
 
 #input-area {
     width: 100%;
     height: 178px;
-    background-color: #2ac44b;
+    /* background-color: #2ac44b; */
+    background-color: #fff;    
     display: grid;
     justify-items: center;
 }
@@ -103,9 +137,12 @@ input#user-msg {
 
 #right-panel {
     height: 100%;
-    background-color: #ee9b1f;
+    /* background-color: #ee9b1f; */
+    background-color: #fff;    
     flex: 1;
     display: flex;
+    border-left-style:solid;
+    border-color: #eee;
 }
 
 img#elixa-details-pane {
