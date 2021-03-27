@@ -6,16 +6,17 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <link rel="stylesheet" type="text/css" href="styles.css" />
+      <link rel="icon" href="favicon.png">
       <script language="JavaScript" type="text/javascript" src="elixabot.js"></script>
       <script language="JavaScript" type="text/javascript" src="elixadata.js"></script>
     
-      <title>ELIXA</title>
+      <title>Elixa</title>
   </head>
 
   <body onload="window.setTimeout(elixaReset(),100)">
 
       <div id="search-bar">
-          <img id="search-img" src="search.png" />
+          <img id="search-img" src="assets/search.png" />
       </div>
 
       <div id="main">
@@ -23,7 +24,6 @@
           <div id="left-panel" class="panel" >
             <h1 id="team-title">Denver Love Bubble</h1>
             <div id="you-header">
-                <!-- <img id="you-dot" src="green_dot.png" /> -->
                 <h4>🟢 You</h4>
             </div>
             <p>All Threads</p>
@@ -53,8 +53,8 @@
           <div id="center-panel" class="panel" >
 
               <div id="center-header">
-                  <img id="elixa-center-header" src="elixa-center-header.png" />                
-                  <img id="begin-img" src="beginning.png" />
+                  <img id="elixa-center-header" src="assets/elixa-center-header.png" />                
+                  <img id="begin-img" src="assets/beginning.png" />
               </div>
 
               <div id="message-area">
@@ -74,7 +74,7 @@
 
           <div id="right-panel" class="panel" >
               <div id="details-pane">
-                  <img id="elixa-details-pane" src="elixa-details-pane.png" />
+                  <img id="elixa-details-pane" src="assets/elixa-details-pane.png" />
               </div>
           </div>
 
@@ -153,9 +153,9 @@
 
           const $msgImage = document.createElement('img')
           if (elixa) {
-            $msgImage.src = "elixa_avatar.png"
+            $msgImage.src = "assets/elixa_avatar.png"
           } else {  
-            $msgImage.src = "coder_avatar.png"          
+            $msgImage.src = "assets/coder_avatar.png"          
           }
           $msgImage.classList += "msg-avatar"
 
