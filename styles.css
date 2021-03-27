@@ -8,7 +8,6 @@ body {
     font-family: "Lato", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
-    /* background-color: #ee1fd9; */
     background-color: #fff;
 }
 
@@ -128,7 +127,7 @@ span.msg-name {
     /* background-color: #fff;     */
     display: grid;
     justify-items: center;
-    background-image: url("slack-msg-background.png");
+    background-image: url("assets/slack-msg-background.png");
     background-position: center;
     position: relative;
     background-size: cover;
@@ -160,10 +159,6 @@ input#msg-input {
     display: flex;
     border-left-style:solid;
     border-color: #eee;
-}
-
-#test-dot {
-    font-size: 28px;
 }
 
 img#elixa-details-pane {
