@@ -5,7 +5,6 @@
 * [Inspiration](#inspiration)
 * [Conversations](#conversations)
 * [Technologies](#technologies)
-* [Setup](#setup)
 * [Status](#status)
 * [Contact](#contact)
 * [License](#license)
@@ -24,3 +23,38 @@ ELIZA was originally written in the MAD-SLIP programming language, which Weizenb
 The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https://www.masswerk.at/elizabot/) by [Norbert Landsteiner of mass:werk media](https://www.masswerk.at/). While being a mere 15 years old as opposed to 55, this ELIZA uses a web interface that is styled similar to a teletype in order to mimic the original 1966 version. Elixa uses the same chatbot engine code as the Landsteiner implementation, but with an updated interface to provide a slack-like experience, and with a new script that reimagines her as a beginning SE bootcamp student rather than a Rogerian therapist.
 
 *note: historic information liberally paraphrased from [Wikipedia's ELIZA article](https://en.wikipedia.org/wiki/ELIZA)*
+
+## Conversations
+
+*coming soon!*
+
+## Technologies
+
+* Implemented in Javascript
+* Deployed with [Netlify](https://netlify.app/)
+
+## Status and Future Plans
+
+2021-03-29: Project is launched as an MVP.  Future features under consideration:
+* Development of a Node.js /Express backend
+* Further development of the Elixa Newpal script to provide more targeted answers to troubleshooting questions and increase the sophistication of standard reponses
+* Improvment of the keyword memory feature so that Elixa will "remember" specific technologies mentioned earlier in the conversation and be able to persist some context
+* Addition of an autosearch feature where Elixa will present the user with Google searches based on combinations of keywords
+* An SMS interface
+* An official Slackbot integration
+
+## Contact
+
+Hi! My name is Tara Harwood, and I am the developer of Elixa Newpal and the founder of [elixa.io](https://elixa.io/), my brand for contributions to open-source projects, currently at a hobbyist level.  I have a specific interest in chatbots, SMS applications, and technologies related to political activism.
+
+As of 2021-03-29, I am a student at Flatiron School's Full-Stack Software Engineering Bootcamp in Denver, CO.  I will be graduating in May 2021. You can learn more about / contact me on LinkedIn or GitHub:
+
+* [Tara on LinkedIn](https://www.linkedin.com/in/taraharwood/)
+* [Tara on GitHub](https://github.com/tara-m-harwood)
+
+
+## License
+
+"Elixa Newpal" and "elixa.io" are copyrights of Tara Harwood, 2021, all rights reserved.
+
+However, all of the code in this project is free software and can be used for any purpose.  Attribution is appreciated, but not required.
