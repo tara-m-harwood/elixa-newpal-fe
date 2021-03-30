@@ -16,7 +16,7 @@ Elixa's friendly attitude, familiar Slack-like interface, and constant availabil
 
 ## Inspiration
 
-Elixa Newpal is based on ELIZA, an early natural language processing computer program developed in 1966 by Joseph Weizenbaum of the MIT Artificial Intelligence Lab. ELIZA simulated conversation by using a pattern matching and substitution methodology that gave users an illusion of understanding on the part of the program. Interactions were dictated by "scripts" which allowed ELIZA to process user inputs and engage in discourse following the rules and directions of the script. The most famous script, DOCTOR, simulated a psychotherapist and used rules, dictated in the script, to respond with non-directional questions to user inputs. As such, ELIZA was one of the first ever chatbots and one of the first programs capable of attempting the Turing test.
+Elixa Newpal is based on ELIZA, an early natural language processing computer program developed in 1966 by Joseph Weizenbaum of the MIT Artificial Intelligence Lab. ELIZA simulated conversation by using a pattern matching and substitution methodology that gave users an illusion of understanding on the part of the program. Interactions were dictated by "scripts" which allowed ELIZA to process user inputs and engage in discourse following the rules and directions of the script. The most famous script, DOCTOR, simulated a psychotherapist by using script rules to respond with non-directional questions to user inputs. ELIZA was one of the first ever chatbots and one of the first programs capable of attempting the Turing test.
 
 ELIZA was originally written in the MAD-SLIP programming language, which Weizenbaum invented as a an extension to FORTRAN.  In 1977, a BASIC version appeared in Creative Computing magazine, which was ported to many of the earliest personal computers of the late 70s and early 80s. ELIZA continues to be source of inspiration for programmers and developers focused on artificial intelligence.  For example, Amazon's Alexa includes an [ELIZA implementation](https://www.amazon.com/Asimov-Eliza/dp/B0184NR4P8) as does [Google Home](https://www.makeuseof.com/tag/google-home-commands-cheat-sheet/).  Another version of Eliza popular among software engineers is the version that comes with the default release of GNU Emacs, and which can be accessed by typing `M-x doctor` from most modern Emacs implementations.
 
@@ -46,13 +46,15 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 * Addition of an autosearch feature where Elixa will present the user with Google searches based on combinations of keywords
 * An SMS interface
 * An official Slackbot integration
-* A significant refactor of the 2005 JS by Landsteiner that updates the code into modern frameworks and practices.
+* A significant refactor of the 2005 JS by Landsteiner -- updating the code into modern frameworks and practices.
 
 ## Contact
 
-Hi! My name is Tara Harwood, and I am the developer of Elixa Newpal and the founder of [elixa.io](https://elixa.io/), my brand for contributions to open-source project at a student/hobbyist level.  I have a specific interest in chatbots, SMS applications, and technologies related to political activism.
+Hi! My name is Tara Harwood, and I am the developer of Elixa Newpal and the founder of [elixa.io](https://elixa.io/), which is my brand for contributions to open-source project at a student/hobbyist level.  I have a specific interest in chatbots, SMS applications, and technologies related to political activism.
 
-As of 2021-03-29, I am a student at Flatiron School's Full-Stack Software Engineering Bootcamp in Denver, CO.  I will be graduating in May 2021. You can learn more about / contact me on LinkedIn or GitHub:
+As a child, my first personal computer came with the BASIC version of ELIZA, and from the start I was entranced with her.  My early experiences with ELIZA formed my interest in computer programming and influenced my ideas about interactive design.
+
+As of March 2021, I am a student at Flatiron School's Full-Stack Software Engineering Bootcamp in Denver, CO.  I will be graduating in May 2021. You can learn more about / contact me on LinkedIn or GitHub:
 
 * [Tara on LinkedIn](https://www.linkedin.com/in/taraharwood/)
 * [Tara on GitHub](https://github.com/tara-m-harwood)
