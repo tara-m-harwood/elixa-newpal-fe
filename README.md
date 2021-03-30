@@ -30,13 +30,14 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 
 ## Technologies
 
-#Frontend
+**Frontend**
 * Implemented in Javascript
 * Deployed with [Netlify](https://netlify.app/)
 
-#Backend
+**Backend**
 * Node.js and Express
 * Deployed with [Heroku](https://heroku.com)
+* Backend repo: https://github.com/tara-m-harwood/elixa-newpal-node
 
 ## Status and Future Plans
 
@@ -50,9 +51,9 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 
 ## Contact
 
-Hi! My name is Tara Harwood, and I am the developer of Elixa Newpal and the founder of [elixa.io](https://elixa.io/), which is my brand for contributions to open-source project at a student/hobbyist level.  I have a specific interest in chatbots, SMS applications, and technologies related to political activism.
+Hi! My name is Tara Harwood, and I am the developer of Elixa Newpal and the Founder/ Chief Hobbyist of [elixa.io](https://elixa.io/), which is my brand for contributions to open-source projects and chatbot research activities.  I have a specific interest in natural language processing, SMS applications, and technologies related to political activism.
 
-As a child, my first personal computer came with the BASIC version of ELIZA, and from the start I was entranced with her.  My early experiences with ELIZA formed my interest in computer programming and influenced my ideas about interactive design.
+As a child, my first personal computer came with the BASIC version of ELIZA, and from the start I was entranced with her.  My early positive experiences with ELIZA formed my interest in computer programming and influenced my ideas about interaction design.
 
 As of March 2021, I am a student at Flatiron School's Full-Stack Software Engineering Bootcamp in Denver, CO.  I will be graduating in May 2021. You can learn more about / contact me on LinkedIn or GitHub:
 
@@ -64,4 +65,4 @@ As of March 2021, I am a student at Flatiron School's Full-Stack Software Engine
 
 "Elixa Newpal" and "elixa.io" are copyrights of Tara Harwood, 2021, all rights reserved.
 
-However, all of the code in this project is free software and can be used for any purpose.  Attribution is appreciated, but not required.
+All of the code in this project is free software and can be used for any purpose.  Attribution is appreciated, but not required.
