@@ -33,6 +33,7 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 **Frontend**
 * Implemented in Javascript
 * Deployed with [Netlify](https://netlify.app/)
+* Frontend repo: https://github.com/tara-m-harwood/elixa-newpal-fe
 
 **Backend**
 * Node.js and Express
