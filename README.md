@@ -48,7 +48,7 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 * Addition of an autosearch feature where Elixa will present the user with Google searches based on combinations of keywords
 * An SMS interface
 * An official Slackbot integration
-* A significant refactor of the 2005 JS by Landsteiner -- updating the code into modern frameworks and practices.
+* A significant refactor of the code
 
 ## Contact
 
