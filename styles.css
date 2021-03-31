@@ -20,6 +20,18 @@ body {
     padding-top: 10px;
 }
 
+@media only screen and ( max-width: 768px ) {
+    #search-bar, 
+    #left-panel,
+    #center-header,
+    #begin-img,
+    #right-panel {
+    display: none;
+    max-height: 0%;    
+    background-color: red;
+    }
+}
+
 #main { 
     /* background-color: #eeea1f; */
     background-color: #fff;    
