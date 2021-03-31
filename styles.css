@@ -9,6 +9,8 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
     background-color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 #search-bar {
@@ -25,7 +27,8 @@ body {
     #left-panel,
     #center-header,
     #begin-img,
-    #right-panel {
+    #right-panel,
+    #elixa-details-pane {
     display: none;
     max-height: 0%;    
     background-color: red;
@@ -39,6 +42,14 @@ body {
     height: 900px;
     display: flex;
     justify-content: space-between;
+}
+
+@media only screen and ( max-width: 768px ) {
+    #main {
+    width: 625px;
+    height: 725px;
+    background-color: sandybrown; 
+    }
 }
 
 /* LEFT PANEL */
@@ -98,9 +109,19 @@ img#elixa-center-header {
     overflow: scroll;
 }
 
-ul#message-list{
-    bottom: 50px;
-    flex-wrap: wrap;
+@media only screen and ( max-width: 768px ) {
+    #message-area {
+    height: 90%;    
+    background-color:red; 
+    }
+}
+
+@media only screen and ( max-width: 768px ) {
+    ul#msg-list {
+    list-style: none;    
+    margin-left: -40px;
+    background-color:greenyellow;
+    }
 }
 
 .msg-avatar { grid-area: avatar; }
@@ -145,6 +166,14 @@ span.msg-name {
     background-size: cover;
 }
 
+@media only screen and ( max-width: 768px ) {
+    #input-area {
+    min-width: 100%;       
+    background-color:hotpink;
+    background-image: none; 
+    }
+}
+
 img#slack-msg-box {
     width: 80%;
     grid-column: 1;
@@ -158,6 +187,14 @@ input#msg-input {
     margin-top: 20px;
     grid-column: 1;
     grid-row: 1;
+}
+
+@media only screen and ( max-width: 768px ) {
+    input#msg-input {
+    width: 330px;
+    height: 15%;
+    background-color: sandybrown; 
+    }
 }
 
 
