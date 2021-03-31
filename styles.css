@@ -31,7 +31,6 @@ body {
     #elixa-details-pane {
     display: none;
     max-height: 0%;    
-    background-color: red;
     }
 }
 
@@ -47,8 +46,7 @@ body {
 @media only screen and ( max-width: 768px ) {
     #main {
     width: 625px;
-    height: 725px;
-    background-color: sandybrown; 
+    height: 725px; 
     }
 }
 
@@ -111,8 +109,7 @@ img#elixa-center-header {
 
 @media only screen and ( max-width: 768px ) {
     #message-area {
-    height: 90%;    
-    background-color:red; 
+    height: 80%;
     }
 }
 
@@ -120,7 +117,6 @@ img#elixa-center-header {
     ul#msg-list {
     list-style: none;    
     margin-left: -40px;
-    background-color:greenyellow;
     }
 }
 
@@ -169,7 +165,6 @@ span.msg-name {
 @media only screen and ( max-width: 768px ) {
     #input-area {
     min-width: 100%;       
-    background-color:hotpink;
     background-image: none; 
     }
 }
@@ -193,7 +188,6 @@ input#msg-input {
     input#msg-input {
     width: 330px;
     height: 15%;
-    background-color: sandybrown; 
     }
 }
 
