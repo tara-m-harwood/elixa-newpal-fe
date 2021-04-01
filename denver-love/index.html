@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <link rel="stylesheet" type="text/css" href="styles.css" />
+      <link rel="icon" href="favicon.png">
+      <script language="JavaScript" type="text/javascript" src="https://elixa-newpal-node.herokuapp.com/elixabot.js"></script>
+      <script language="JavaScript" type="text/javascript" src="https://elixa-newpal-node.herokuapp.com/elixadata.js"></script>
+    
+      <title>Elixa</title>
+  </head>
+
+  <body onload="window.setTimeout(elixaReset(),100)">
+
+      <div id="search-bar">
+          <img id="search-img" src="assets/search.png" />
+      </div>
+
+      <div id="main">
+
+          <div id="left-panel" class="panel" >
+            <h1 id="team-title">Denver Love Bubble</h1>
+            <div id="you-header">
+                <h4>🟢 You</h4>
+            </div>
+            <p><a href="https://mostlyambivalent.com/collections/flatiron-school-software-engineering" target="_blank">All Threads</a></p>
+
+            <div id="channels">  
+              <h5>CHANNELS (4)</h5>
+              <p><a href="https://flatiron-school-denver.firebaseapp.com" target="_blank"># denver-se-announce</a></p>
+              <p><a href="https://app.slack.com/client/T02MD9XTF/C010H32LNN7" target="_blank"># denver-tech-questions</a></p>
+              <p><a href="https://www.thrillist.com/entertainment/denver/things-to-do-in-denver" target="_blank"># denver-random</a></p>          
+              <p><a href="https://github.com/tara-m-harwood/elixa-newpal-fe/blob/main/README.md" target="_blank"># chatbot-info</a></p>
+            </div>
+
+            <div id="dms">
+              <h5>DIRECT MESSAGES (8)</h5>
+              <p id="active">🟢 Elixa Newpal</p>
+              <p><a href="https://www.linkedin.com/in/taraharwood/" target="_blank">🟢 Tara Harwood</a></p>
+              <p><a href="https://www.linkedin.com/in/marcmajcher/" target="_blank">⭘ Marc Majcher</a></p>
+              <p><a href="https://www.linkedin.com/in/philip-haines/" target="_blank">⭘ Phil Haines</a></p>
+              <p><a href="https://www.linkedin.com/in/kylecoberly/" target="_blank">⭘ Kyle Coberly</a></p>                      
+              <p><a href="https://www.linkedin.com/in/damon-chivers/" target="_blank">⭘ Damon Chivers</a></p> 
+              <p><a href="https://www.linkedin.com/in/ahmedtgaber/" target="_blank">⭘ Ahmed Gaber</a></p>                                   
+            </div>    
+
+          </div>
+
+          <div id="center-panel" class="panel" >
+
+              <div id="center-header">
+                  <img id="elixa-center-header" src="assets/elixa-center-header.png" />                
+                  <img id="begin-img" src="assets/beginning.png" />
+              </div>
+
+              <div id="message-area">
+                  <ul id="msg-list">
+                  <!-- MESSAGES WILL BE APPENDED HERE -->                                                                
+                  </ul>
+              </div>
+
+              <div id="input-area">
+                  <form id="msg-form" name="e_form" autocomplete="off" onsubmit="elixaStep();return false">
+                    <input id="msg-input" type="text" name="e_input"/>
+                    <input type="submit" style="display: none" />
+                  </form>      
+              </div>
+          </div>
+
+          <div id="right-panel" class="panel" >
+              <div id="details-pane">
+                  <img id="elixa-details-pane" src="assets/elixa-details-pane.png" />
+              </div>
+          </div>
+
+      </div>
+
+  <script language="JavaScript" type="text/javascript" defer>
+        var elixa = new ElixaBot();
+        var elixaLines = new Array();
+
+        var displayCols = 60;
+        var displayRows = 20;
+
+        function elixaReset() {
+          elixa.reset();
+          elixaLines.length = 0;
+          elixaStep();
+        }
+
+        function elixaStep() {
+          var f = document.forms.e_form;
+          var userinput = f.e_input.value;
+          if (elixa.quit) {
+            f.e_input.value = "";
+            if (confirm("This session is over.\nStart over?")) elixaReset();
+            f.e_input.focus();
+            return;
+          } else if (userinput != "") {
+            var usr = userinput;
+            var rpl = elixa.transform(userinput);
+            elixaLines.push(usr);
+            elixaLines.push(rpl);
+
+            appendMessage(usr, 0);
+            appendMessage(rpl, 1);
+            // TARA - code below still needs to be freed from the the teletype interface
+
+            // display nicely
+            // (fit to textarea with last line free - reserved for extra line caused by word wrap)
+            var temp = new Array();
+            var l = 0;
+            for (var i = elixaLines.length - 1; i >= 0; i--) {
+              l += 1 + Math.floor(elixaLines[i].length / displayCols);
+              if (l >= displayRows) break;
+              else temp.push(elixaLines[i]);
+            }
+            elixaLines = temp.reverse();
+            // f.e_display.value = elixaLines.join("\n");
+          } else if (elixaLines.length == 0) {
+            // no input and no saved lines -> output initial
+
+            // f.e_display.value = "\n";
+            var initial = elixa.getInitial();
+            // 1 is a boolean that indicates Elixa is the speaker
+            appendMessage(initial,1);
+          }
+          f.e_input.value = "";
+          f.e_input.focus();
+        }
+
+        function appendMessage(message, elixa) {
+          const $msgList = document.querySelector("#msg-list");          
+          const $msgItem = document.createElement("div");
+          $msgItem.classList += "msg-item";
+
+          const $msgName = document.createElement('span')
+          if (elixa) {
+              $msgName.textContent = "Elixa Newpal"
+          } else {
+              $msgName.textContent = "You"           
+          }
+          $msgName.classList += "msg-name"
+
+          const $msgContent = document.createElement('p')
+          $msgContent.textContent = message;
+          $msgContent.classList += "msg-content"
+
+          const $msgImage = document.createElement('img')
+          if (elixa) {
+            $msgImage.src = "assets/elixa_avatar.png"
+          } else {  
+            $msgImage.src = "assets/coder_avatar.png"          
+          }
+          $msgImage.classList += "msg-avatar"
+
+          $msgItem.append($msgImage, $msgName, $msgContent)
+
+          $msgList.append($msgItem);
+        }
+      </script>
+    </body>
+  </html>    
+      
+  </body>
+</html>
