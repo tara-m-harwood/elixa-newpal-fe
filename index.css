@@ -1,0 +1,23 @@
+#main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+#logo {
+    width: 440px;
+}
+
+#icons{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#icons img{
+    width: 55px;
+    padding: 30px;
+}
