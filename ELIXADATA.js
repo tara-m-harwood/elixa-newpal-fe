@@ -85,21 +85,13 @@ var elixaSynons = {
   cannot: ["can't"],
   desire: ["want", "need"],
   everyone: ["everybody", "nobody", "noone"],
-  family: [
-    "mother",
-    "mom",
-    "father",
-    "dad",
-    "sister",
-    "brother",
-    "wife",
-    "children",
-    "child",
-  ],
+  family: [ "mother", "mom", "father", "dad", "sister", "brother", "wife", "children", "child"],
   happy: ["elated", "glad", "better"],
-  sad: ["unhappy", "depressed", "sick"],
+  sad: ["unhappy", "depressed", "sick", "stuck", "frustrated", "angry", "upset", "tired", "bored", "sleepy", "mad"],
   apologise: ["apologize", "apology"],
-  Javascript: ["JS", "frontend"],
+  Javascript: ["JS", "frontend", "event listener", "button", "forEach"],
+  server: ["routes", "backend"]
+  git: ["GitHub", "push", "pull", "branch", "merge"]
 };
 
 var elixaKeywords = [
@@ -185,8 +177,30 @@ var elixaKeywords = [
 
   [
     "server",
-    25,
-    [["* server *", ["Are you sure you are using the right port?"]]],
+    5,
+    [
+      ["* server *", 
+        ["Are you sure you are using the right port?"],
+        ["Is this something you could test out with Postman?"],
+        ["Did you start the server from the right directory?  I make that mistake sometimes!"],
+        ["I'm not sure if this helps, but I have heard is is important to always start your backend server before your frontend server.  Otherwise they get confused about the ports!"]
+      ]
+    ],
+  ],
+
+   [
+    "sad",
+    95,
+      ["* sad *", 
+        ["I am sorry you are having this problem.  Do you think taking a break might help?"],
+        ["My pal Ahmed is always saying to take a lot of breaks when coding -- sometimes the answer to a problem comes when our minds are relaxed and thinking about something else!"],
+        ["You have been working so hard on this!  Do you want to take a quick stretch break? My friend Tara likes this 5 min video: https://www.fitnessblender.com/videos/relaxing-stretching-workout-for-stiff-muscles-and-stress-relief-easy-stretches-to-do-at-work"],
+        ["How late is it?  Sometimes when I'm stuck on a problem what I really need is a good night's rest!"],
+        ["I can't help with this one, but I don't want you to feel stuck. Maybe reach out to someone who might know more about it?"],
+        ["My friend Tara likes to take long walks when she is stuck on a problem; do you think that would help?"],
+        ["Is there any class you could ask for that might help you gain understanding of this issue?"]
+      ]
+    ],
   ],
 
   // *********
@@ -232,6 +246,9 @@ var elixaKeywords = [
           "My friend Tiffany taught me: 'Always check spelling and casing when your code looks correct, but it's not doing what it is supposed to do.",
           "Do you use the VSCode extension 'Bracket Pair Colorizer'?  My pal Tiffany says that has saved her so many times!",
           "PascalCase, camelCase, snake_case, kebab-case -- sometimes I get them mixed up! Does that ever happen to you?",
+          "Does this remind you of something you have seen in past?",
+          "Do you know anyone else who had a similar problem?",
+          "goto sad"
         ],
       ],
     ],
@@ -295,7 +312,7 @@ var elixaKeywords = [
       [
         "* i forget *",
         [
-          "We are learning so much herer -- I can understand why you might forget (2) !  Is there someone else you could ask?",
+          "We are learning so much here -- I can understand why you might forget (2) !  Is there someone else you could ask?",
           "Why do you think you can't remember (2) ?",
           "Maybe you are just rusty on (2) ?  Do you have any older projects you could look at for reference?",
           "Maybe you do remember (2), but you have been working too hard on it ... perhaps take a break and see if it comes back to you!",
@@ -309,7 +326,7 @@ var elixaKeywords = [
   ],
   [
     "if",
-    3,
+    0,
     [
       [
         "* if *",
@@ -477,7 +494,6 @@ var elixaKeywords = [
         [
           "Why are you concerned over my (2) ?",
           "What about your own (2) ?",
-          "Are you worried about someone else's (2) ?",
           "What makes you think of my (2) ?",
           "Do you want my (2) ?",
         ],
@@ -538,7 +554,7 @@ var elixaKeywords = [
         [
           "I am sorry to hear that you are (3).",
           "I don't know if I can help you be less (3), but I can try!",
-          "I'm sure it's not pleasant to be (3).",
+          "I know it is not pleasant to be (3).",
           "Can you explain what made you (3) ?",
         ],
       ],
