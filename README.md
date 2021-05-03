@@ -14,7 +14,7 @@
 
 Elixa's friendly attitude, familiar Slack-like interface, and constant availability makes her an appealing option for anyone who needs to chat through a thorny coding problem.  Her technical tips are based on the learning experiences of many software bootcamp students and instructors. Elixa's advice includes targeted responses at the mention of specific technologies, as well as general programming wisdom.  And if the conversation strays off the topic of programming, she may slip into interactions based on her previous career as a psychotherapist!
 
-## Inspiration
+## Historic Inspiration
 
 Elixa Newpal is based on ELIZA, an early natural language processing computer program developed in 1966 by Joseph Weizenbaum of the MIT Artificial Intelligence Lab. ELIZA simulated conversation by using a pattern matching and substitution methodology that gave users an illusion of understanding on the part of the program. Interactions were dictated by "scripts" which allowed ELIZA to process user inputs and engage in discourse following the rules and directions of the script. The most famous script, DOCTOR, simulated a psychotherapist by using script rules to respond with non-directional questions to user inputs. ELIZA was one of the first ever chatbots and one of the first programs capable of attempting the Turing test.
 
@@ -24,9 +24,9 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 
 *note: historic information liberally paraphrased from [Wikipedia's ELIZA article](https://en.wikipedia.org/wiki/ELIZA)*
 
-## Conversations
+## Modern Inspiration
 
-*coming soon!*
+Elixa Newpal was developed as an appreciative gift to the incredible learning community of the Flatiron Software Engineering Bootcamp in Denver, CO, affectionately known as "The Love Bubble" or "The Learning Factory".  
 
 ## Technologies
 
@@ -42,8 +42,10 @@ The Elixa Newpal code is based on a 2005 [ELIZA Javascript implementation](https
 
 ## Status and Future Plans
 
-2021-03-29: Project is launched as an MVP.  Future features under consideration:
-* Further development of the Elixa Newpal script to provide more targeted answers to troubleshooting questions and increase the sophistication of standard reponses
+2021-04-02: Elixa Newpal was launched as an MVP and presented to the Denver Love Bubble community.
+
+Future features under consideration:
+* Creation of a new general-purpose Elixa script for troublshooting support, broadening beyond one specific school
 * Improvment of the keyword memory feature so that Elixa will "remember" specific technologies mentioned earlier in the conversation and be able to persist some context
 * Addition of an autosearch feature where Elixa will present the user with Google searches based on combinations of keywords
 * An SMS interface
@@ -56,7 +58,7 @@ Hi! My name is Tara Harwood, and I am the developer of Elixa Newpal and the Foun
 
 As a child, my first personal computer came with the BASIC version of ELIZA, and from the start I was entranced with her.  My early positive experiences with ELIZA formed my interest in computer programming and influenced my ideas about interaction design.
 
-As of March 2021, I am a student at Flatiron School's Full-Stack Software Engineering Bootcamp in Denver, CO.  I will be graduating in May 2021. You can learn more about / contact me on LinkedIn or GitHub:
+As of April 2021, I am a student at Flatiron School's Full-Stack Software Engineering Bootcamp in Denver, CO. I created Elixa Newpal as my Week 9 project, as part of my 15 week curriculum. I will be graduating in May 2021. You can learn more about / contact me on LinkedIn or GitHub:
 
 * [Tara on LinkedIn](https://www.linkedin.com/in/taraharwood/)
 * [Tara on GitHub](https://github.com/tara-m-harwood)
