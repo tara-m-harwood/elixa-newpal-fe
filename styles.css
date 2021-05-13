@@ -87,11 +87,6 @@ div#left-panel p:hover{
     background-color: #4C9689;
 }
 
-div#left-panel #channels {
-
-}
-
-
 
 /* CENTER PANEL */
 
@@ -183,6 +178,10 @@ span.msg-name {
     background-position: center;
     position: relative;
     background-size: cover;
+}
+
+main-container{
+    display: flex;
 }
 
 @media only screen and ( max-width: 768px ) {

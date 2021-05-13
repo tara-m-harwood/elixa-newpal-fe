@@ -1,23 +1,35 @@
-#main {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
+#main-container {
+    margin: 0 auto;
+    display: flex;
+    background-color: hotpink;
 }
 
 #logo {
     width: 440px;
 }
 
-#icons{
+#logo-container{
+    background-color: #fff;
+}
+
+#icon-container{
     margin: auto;
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: space-evenly;
 }
 
-#icons img{
+#icon-container img{
     width: 55px;
     padding: 30px;
+}
+
+#message-container{
+    padding: 50px;
+    font-family: Raleway;
+}
+
+h1{
+    font-size: 3rem;
+    color: #fff
 }

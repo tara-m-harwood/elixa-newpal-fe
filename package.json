@@ -1,0 +1,21 @@
+{
+  "name": "elixa-newpal-fe",
+  "version": "1.0.0",
+  "description": "![pink chat icon with a green status indicator and a green smile. Text below reads 'elixa.io, have a nice chat'](assets/elixa_small.png)",
+  "main": "elixabot.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tara-m-harwood/elixa-newpal-fe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tara-m-harwood/elixa-newpal-fe/issues"
+  },
+  "homepage": "https://github.com/tara-m-harwood/elixa-newpal-fe#readme"
+}
